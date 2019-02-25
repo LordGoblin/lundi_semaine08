@@ -1,5 +1,4 @@
 var compteur_footer = 0;
-var compteur_nav = 0;
 
 document.getElementsByClassName("btn-primary")[0].removeAttribute("href");
 
@@ -25,11 +24,8 @@ document.getElementsByClassName("col-md-4")[1].getElementsByClassName("btn-group
 	}
 });
 
-document.querySelector("header").addEventListener("click", function(){
-	compteur_nav++;
-	if (compteur_nav >= 2 && document.querySelector("link").disabled === false) {
-		console.log("coucou")
-		console.log(document.querySelector("link"))
+document.querySelector("header").addEventListener("dblclick", function(){
+	if (document.querySelector("link").disabled === false) {
 		document.querySelector("link").disabled = true;
 	} else {
 		document.querySelector("link").disabled = false;	
@@ -57,13 +53,13 @@ for (let i = 0; i < document.getElementsByClassName("col-md-4").length; i++) {
 document.getElementsByClassName("btn-secondary")[0].addEventListener("click", function(){
 	a = document.getElementsByClassName("col-md-4")[0]
 	b = document.getElementsByClassName("col-md-4")[5]
-	document.getElementsByClassName("container")[3].getElementsByClassName("row")[0].insertBefore(a,b)
+	document.getElementsByClassName("container")[3].getElementsByClassName("row")[0].insertBefore(b,a)
 });
 
 document.getElementsByClassName("btn-primary")[0].addEventListener("click", function(){
 	a = document.getElementsByClassName("col-md-4")[0]
-	b = document.getElementsByClassName("col-md-4")[5]
-	document.getElementsByClassName("container")[3].getElementsByClassName("row")[0].insertBefore(b,a)
+	b = document.getElementsByClassName("col-md-4")[6]
+	document.getElementsByClassName("container")[3].getElementsByClassName("row")[0].insertBefore(a,b)
 });
 
 document.addEventListener('keypress', (event) => {
@@ -71,19 +67,24 @@ document.addEventListener('keypress', (event) => {
 
   if(nomTouche === "a") {
   	console.log(nomTouche)
-  	document.querySelector("body").classList.toggle("offset-ml-4")
+  	document.querySelector("body").classList.remove("col-4")
+  	document.querySelector("body").classList.remove("offset-md-4")
+  	document.querySelector("body").classList.remove("offset-md-8")
   	document.querySelector("body").classList.toggle("col-4")
-
   } else if(nomTouche === "y") {
   	console.log(nomTouche)
-  	document.querySelector("body").classList.toggle("offset-md-4")
+  	document.querySelector("body").classList.remove("col-4")
+  	document.querySelector("body").classList.remove("offset-md-4")
+  	document.querySelector("body").classList.remove("offset-md-8")
   	document.querySelector("body").classList.toggle("col-4")
-
+  	document.querySelector("body").classList.toggle("offset-md-4")
   } else if(nomTouche === "p") {
   	console.log(nomTouche)
-  	document.querySelector("body").classList.toggle("offset-md-8")
+  	document.querySelector("body").classList.remove("col-4")
+  	document.querySelector("body").classList.remove("offset-md-4")
+  	document.querySelector("body").classList.remove("offset-md-8")
   	document.querySelector("body").classList.toggle("col-4")
-
+  	document.querySelector("body").classList.toggle("offset-md-8")
   } else if(nomTouche === "b") {
   	document.querySelector("body").classList.remove("col-4")
   	document.querySelector("body").classList.remove("offset-md-4")
